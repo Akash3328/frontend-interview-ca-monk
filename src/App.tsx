@@ -1,16 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchDummyGreeting } from "./API/testApi";
+import { fetchDummyGreeting } from "./API/blogApi";
 import AppRouter from "./router/AppRouter";
+import BlogList from "./pages/BlogList";
 
 function App() {
-  const { data, isLoading } = useQuery<string>({
-  queryKey: ["greeting"],
-  queryFn: fetchDummyGreeting,
-});
-
+ 
   return (
     
-     <AppRouter />
+       <BlogList />
    
   );
 }
