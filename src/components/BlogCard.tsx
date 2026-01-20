@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 type BlogCardProps = {
-  id: "number";
+  id: string | number;
   title: string;
   category: string[];
   description: string;
