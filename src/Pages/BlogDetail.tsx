@@ -1,6 +1,7 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { fetchBlogById } from "../API/blogApi";
+import { motion } from "framer-motion";
 
 const BlogDetail = () => {
   const { id } = useParams();
@@ -10,9 +11,11 @@ const BlogDetail = () => {
     queryFn: () => fetchBlogById(id),
   });
 
-  if (isLoading) return <div>Loading blog...</div>;
-  if (isError) return <div>Error loading blog</div>;
-  if (!blog) return <div>No blog found</div>;
+  const isMobile = window.innerWidth < 1024;
+
+  if (isLoading) return <div className="p-6">Loading blog...</div>;
+  if (isError) return <div className="p-6">Error loading blog.</div>;
+  if (!blog) return <div className="p-6">No blog found.</div>;
 
   const formattedDate = new Date(blog.date).toLocaleDateString("en-US", {
     year: "numeric",
@@ -21,8 +24,23 @@ const BlogDetail = () => {
   });
 
   return (
-    <div className="mx-auto max-w-3xl space-y-6">
-      
+    <motion.div
+      initial={{ opacity: 0, x: isMobile ? 50 : 0 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: isMobile ? 50 : 0 }}
+      transition={{ duration: 0.25, ease: "easeOut" }}
+      className="p-5 md:p-8 max-w-3xl mx-auto space-y-6"
+    >
+      {/* Mobile Back Button */}
+      {isMobile && (
+        <Link
+          to="/"
+          className="text-blue-600 text-sm underline underline-offset-2 block"
+        >
+          ← Back to Blogs
+        </Link>
+      )}
+
       {/* Cover Image */}
       {blog.coverImage && (
         <img
@@ -37,9 +55,8 @@ const BlogDetail = () => {
         {blog.title}
       </h1>
 
-      {/* Categories + Date */}
+      {/* Category + Date */}
       <div className="flex flex-wrap items-center gap-3 text-sm text-gray-600">
-        {/* Categories as tags */}
         <div className="flex gap-2 flex-wrap">
           {blog.category?.map((tag: string) => (
             <span
@@ -51,13 +68,9 @@ const BlogDetail = () => {
           ))}
         </div>
 
-        {/* Divider (•) */}
         <span className="text-gray-400">•</span>
 
-        {/* Date */}
-        <span className="text-gray-500 text-xs">
-          {formattedDate}
-        </span>
+        <span className="text-gray-500 text-xs">{formattedDate}</span>
       </div>
 
       {/* Description */}
@@ -85,7 +98,7 @@ const BlogDetail = () => {
           ))}
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };
 

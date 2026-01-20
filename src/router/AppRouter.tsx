@@ -9,25 +9,18 @@ export default function AppRouter() {
   const isDesktop = window.innerWidth >= 1024;
   return (
     <BrowserRouter>
-      <Routes>
+     <Routes>
+       
         {/* Desktop */}
-        {isDesktop && (
-          <>
-            <Route path="/" element={<BlogLayout />} />
-            <Route path="/blogs/:id" element={<BlogLayout />} />
-          </>
-        )}
+        <Route path="/" element={<BlogLayout />}>
+          <Route path="blogs/:id" element={<BlogDetail />} />
+        </Route>
 
         {/* Mobile */}
-        {!isDesktop && (
-          <>
-            <Route path="/" element={<BlogList />} />
-            <Route path="/blogs/:id" element={<BlogDetail />} />
-          </>
-        )}
-
-        <Route path="/create" element={<BlogCreate />} />
+        <Route path="/" element={<BlogList />} />
+        <Route path="/blogs/:id" element={<BlogDetail />} />
       </Routes>
+
 
     </BrowserRouter>
   );

@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 type BlogCardProps = {
   id: string | number;
@@ -23,20 +25,30 @@ export function BlogCard({
 
   return (
     <Link to={`/blogs/${id}`}>
-      <div className="border rounded-lg p-4 hover:bg-gray-50 transition">
-        <div className="flex justify-between items-center mb-2">
-          <span className="text-xs text-blue-600 font-semibold">
-            {category.join(", ")}
-          </span>
-          <span className="text-xs text-gray-500">{formattedDate}</span>
-        </div>
+      <Card className="hover:shadow-sm transition cursor-pointer">
+        <CardHeader className="pb-2">
+          <div className="flex justify-between items-center">
+            <div className="flex gap-1 flex-wrap">
+              {category?.map((cat: string) => (
+                <Badge variant="secondary" key={cat}>
+                  {cat}
+                </Badge>
+              ))}
+            </div>
+            <span className="text-xs text-muted-foreground">{formattedDate}</span>
+          </div>
+        </CardHeader>
 
-        <h3 className="font-semibold text-lg mb-1">{title}</h3>
+        <CardContent>
+          <CardTitle className="text-lg">
+            {title}
+          </CardTitle>
 
-        <p className="text-sm text-gray-600 line-clamp-2">
-          {description}
-        </p>
-      </div>
+          <p className="text-sm text-muted-foreground line-clamp-2">
+            {description}
+          </p>
+        </CardContent>
+      </Card>
     </Link>
   );
 }
