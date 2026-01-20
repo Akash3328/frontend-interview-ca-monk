@@ -4,10 +4,22 @@ import { fetchBlogById } from "../API/blogApi";
 import { motion } from "framer-motion";
 import { ShareMenu } from "../components/ShareMenu";
 import { BlogDetailSkeleton } from "../components/BlogDetailSkeleton";
+import { useState, useEffect } from "react";
+import { Badge } from "@/components/ui/badge";
 
 const BlogDetail = () => {
   const { id } = useParams();
-  const isMobile = window.innerWidth < 1024;
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 1024);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
 
   const { data: blog, isLoading, isError } = useQuery({
     queryKey: ["blog", id],
@@ -54,12 +66,12 @@ const BlogDetail = () => {
       <h1 className="text-3xl font-semibold">{blog.title}</h1>
 
       <div className="flex flex-wrap items-center gap-3 text-sm text-gray-600">
-        {blog.category?.map((tag: string) => (
+        {blog.category?.map((cat: string) => (
           <span
-            key={tag}
+            key={cat}
             className="px-2 py-1 rounded-md bg-blue-100 text-blue-700 text-xs font-medium"
           >
-            {tag}
+            {cat}
           </span>
         ))}
         <span className="text-gray-400">•</span>
@@ -73,6 +85,19 @@ const BlogDetail = () => {
       <div className="text-gray-800 leading-relaxed whitespace-pre-line">
         {blog.content}
       </div>
+
+      {blog.tags && blog.tags.length > 0 && (
+        <div className="pt-4 border-t">
+          <h3 className="text-sm font-semibold mb-2 text-gray-500">Tags:</h3>
+          <div className="flex flex-wrap gap-2">
+            {blog.tags.map((tag: string) => (
+              <Badge key={tag} variant="secondary">
+                {tag}
+              </Badge>
+            ))}
+          </div>
+        </div>
+      )}
     </motion.div>
   );
 };

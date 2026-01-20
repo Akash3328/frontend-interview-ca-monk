@@ -117,6 +117,29 @@
       "date": "2025-12-10T16:30:00.000Z",
       "coverImage": "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg",
       "content": "Ethics form the backbone of trust in financial systems. With increased automation and complex instruments, ethical judgment plays a crucial role in decision-making. Short-term gains achieved through unethical practices often lead to long-term damage.\n\nProfessionals must prioritize transparency, integrity, and accountability. Strong ethical frameworks protect not only clients but also the credibility of the profession.\n\nIn an era of rapid change, ethics remain a constant guiding principle."
+    },
+    {
+      "id": "d802",
+      "title": "Introduction to Cloud Computing for Beginners",
+      "description": "A quick beginner-friendly overview of cloud computing, its core benefits, and use cases in modern software development.",
+      "category": [
+        "Technology",
+        "Cloud",
+        "Software",
+        "Beginner Guide"
+      ],
+      "coverImage": "https://images.unsplash.com/photo-1518770660439-4636190af475",
+      "content": "Cloud computing refers to the delivery of computing services—including servers, databases, networking, storage, and software—over the internet (“the cloud”).\nInstead of owning physical infrastructure, organizations rent computing resources on demand.\n\nCloud computing has transformed how software is built, deployed, and scaled. Many companies rely on cloud platforms such as AWS, Microsoft Azure, and Google Cloud to run applications more efficiently and reduce hardware costs.\n\nKey Benefits of Cloud Computing\n\nCost Efficiency: Pay only for the resources you use.\n\nScalability: Instantly adjust capacity based on traffic.\n\nGlobal Access: Run applications from anywhere.\n\nReliability: Built-in failover and redundancy systems.\n\nPopular Use Cases\n\nHosting web applications\n\nData storage and backup\n\nMachine learning and analytics\n\nContent delivery\n\nIoT platforms\n\nCloud computing continues to evolve and will play a critical role in the future of software and IT infrastructure.",
+      "tags": [
+        "cloud",
+        "software",
+        "aws",
+        "azure",
+        "gcp",
+        "beginner",
+        "tech"
+      ],
+      "date": "2026-01-20T12:04:32.733Z"
     }
   ]
 }

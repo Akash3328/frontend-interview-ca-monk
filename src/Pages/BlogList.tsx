@@ -19,10 +19,10 @@ const BlogList = () => {
   return (
     <div className="space-y-4">
 
-      <div className="flex justify-end">
+      <div className="sticky top-0 z-10 bg-white/95 backdrop-blur -mt-4 -mx-4 p-4 flex justify-end border-b shadow-sm">
         <button
           onClick={() => navigate("/create")}
-          className="px-3 py-2 bg-blue-600 text-white rounded"
+          className="px-3 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
         >
           New Blog
         </button>
