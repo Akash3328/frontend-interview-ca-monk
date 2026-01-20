@@ -65,7 +65,7 @@ const BlogDetail = () => {
 
       <h1 className="text-3xl font-semibold">{blog.title}</h1>
 
-      <div className="flex flex-wrap items-center gap-3 text-sm text-gray-600">
+      <div className="flex flex-wrap items-center gap-3 text-sm text-gray-600 pt-16">
         {blog.category?.map((cat: string) => (
           <span
             key={cat}

@@ -32,7 +32,7 @@ export default function CreateBlog() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto mt-8">
+    <div className="max-w-2xl mx-auto mt-8 pt-16">
       <h1 className="text-2xl font-semibold mb-4">Create New Blog</h1>
 
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -85,7 +85,7 @@ export default function CreateBlog() {
 
         <button
           type="submit"
-          className="bg-black text-white px-4 py-2 rounded disabled:opacity-50"
+          className="px-4 py-1.5 text-sm bg-teal-950 text-white rounded-md hover:bg-teal-700 transition-colors hover:cursor-pointer"
           disabled={mutation.isPending}
         >
           {mutation.isPending ? "Creating..." : "Create"}

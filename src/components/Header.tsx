@@ -2,13 +2,13 @@ import React from "react";
 
 const Header: React.FC = () => {
   return (
-    <header className="w-full border-b bg-white text-black fixed top-0 left-0 z-50">
-      <div className="max-w-6xl mx-auto flex items-center justify-between py-4 px-4">
+    <header className="border-b bg-white text-black fixed top-0 left-0 z-50 w-full">
+      <div className="max-w-6xl mx-auto flex items-center justify-between py-1 px-4">
         <div className="flex items-center gap-2">
           <img
             src="/public/CAlogo.svg"
             alt="Brand Logo"
-            className="h-10 w-10"
+            className="h-13 w-13"
           />
           <span className="font-semibold text-lg tracking-tight">
             CA Monk

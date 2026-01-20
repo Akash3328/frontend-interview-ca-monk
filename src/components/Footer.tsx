@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
         </div>
       </div>
 
-      <div className="border-t border-gray-700 py-4 flex flex-col md:flex-row justify-between text-xs px-4 max-w-6xl mx-auto gap-2">
+      <div className="border-t border-gray-700 py-1 flex flex-col md:flex-row justify-between text-xs px-4 max-w-6xl mx-auto ">
         <span>© 2026 CA Monk. All rights reserved.</span>
         <div className="flex gap-4">
           <a href="#" className="hover:text-white">Privacy Policy</a>
