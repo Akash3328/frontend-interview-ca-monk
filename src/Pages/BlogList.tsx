@@ -17,13 +17,13 @@ const BlogList = () => {
   if (!data || data.length === 0) return <div>No blogs yet — create your first blog</div>;
 
   return (
-    <div className="space-y-4 pt-19">
+    <div className="space-y-4 pt-10">
 
-      <div className="sticky top-0 z-10 bg-white/95 backdrop-blur -mt-4 -mx-4 p-4 flex justify-end border-b shadow-sm">
+      <div className="sticky top-0 z-10 bg-white/95 backdrop-blur -mt-4 -mx-4 p-4 flex justify-end border-b shadow-sm pt-10">
         <button
           onClick={() => navigate("/create")}
-       className="px-3 py-2 bg-teal-950 text-white rounded hover:bg-teal-900 transition-colors hover: cursor-pointer"
->
+          className=" px-3 py-2 bg-teal-950 text-white rounded hover:bg-teal-900 transition-colors hover: cursor-pointer"
+        >
           New Blog
         </button>
       </div>

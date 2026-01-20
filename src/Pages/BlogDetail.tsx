@@ -41,7 +41,7 @@ const BlogDetail = () => {
       initial={{ opacity: 0, x: isMobile ? 50 : 0 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.25 }}
-      className="p-5 md:p-8 max-w-3xl mx-auto space-y-6"
+      className="p-5 md:p-8 max-w-3xl mx-auto space-y-6 pt-15"
     >
       {/* Mobile Back */}
       {isMobile && (
@@ -65,7 +65,7 @@ const BlogDetail = () => {
 
       <h1 className="text-3xl font-semibold">{blog.title}</h1>
 
-      <div className="flex flex-wrap items-center gap-3 text-sm text-gray-600 pt-16">
+      <div className="flex flex-wrap items-center gap-3 text-sm text-gray-600 pt-10">
         {blog.category?.map((cat: string) => (
           <span
             key={cat}

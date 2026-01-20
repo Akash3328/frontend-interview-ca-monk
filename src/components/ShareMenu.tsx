@@ -29,7 +29,7 @@ export function ShareMenu({ id, title }: Props) {
   };
 
   return (
-    <div className="relative pt-16">
+    <div className="relative pt-10">
       <Button
         variant="outline"
         size="sm"
